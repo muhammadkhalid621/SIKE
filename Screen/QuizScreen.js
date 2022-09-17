@@ -23,7 +23,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
-          onPress={() => navigation.navigate("Home", {screen : "AnxietyQuiz"})}
+          onPress={() => navigation.navigate("Home", {screen : "PTSDQuiz"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>PTSD</Text>
@@ -32,6 +32,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", {screen : "DepressionQuiz"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>DEPRESSION</Text>
@@ -40,6 +41,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", {screen : "AnxietyQuiz"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>ANXIETY</Text>
@@ -47,6 +49,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", {screen : "EatingQuiz"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>EATING DISORDER</Text>
@@ -55,6 +58,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", {screen : "AddictionQuiz"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>ADDICTION DISORDER</Text>
@@ -63,6 +67,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", {screen : "StealingQuiz"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>STEALING DISORDER</Text>
@@ -70,6 +75,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", {screen : "BurningDisorder"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>BURNING DISORDER</Text>
@@ -78,6 +84,7 @@ const QuizScreen = ( { navigation } ) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", {screen : "BiPolarDisorder"})}
           // onPress={handleSubmitPress}
         >
           <Text style={styles.buttonTextStyle}>BIPOLAR DISORDER</Text>

@@ -12,91 +12,72 @@
 
 // export default ChatScreen
 
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat';
-import { Dialogflow_V2 } from 'react-native-dialogflow';
+import React, { useCallback, useState, useEffect } from "react";
+import { GiftedChat } from "react-native-gifted-chat";
 
-import { dialogflowConfig } from '../env';
+const ChatScreen = () => {
+  var id = "id" + Math.random().toString(16).slice(2);
+  const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    setMessages([
+      {
+        _id: Math.random().toString(16).slice(2),
+        text: "Hello My name is Psych Bot from SIKE. How may I help you",
+        createdAt: new Date(),
+      },
+    ]);
+  }, []);
 
-const BOT_USER = {
-  _id: 2,
-  name: 'FAQ Bot',
- avatar: 'https://i.imgur.com/7k12EPD.png'
-};
+  const onSend = useCallback((messages = []) => {
+    setMessages((previousMessages) =>
+      GiftedChat.append(previousMessages, messages)
+    );
+    const a = ["sad"];
+    if (
+      a.some((element) =>
+        new RegExp("\\b" + element + "\\b").test(messages[0].text)
+      )
+    ) {
+      setMessages((previousMessages) =>
+        GiftedChat.append(previousMessages, [
+          {
+            _id: Math.random().toString(16).slice(2),
+            text: "Can you bit more explain me about your problem or I can recommend you, our Psychiatrist",
+            createdAt: new Date(),
+          },
+          {
+            _id: Math.random().toString(16).slice(2),
+            text: "We cannot solve problems with the kind of thinking we employed when we came up with them (— Albert Einstein)",
+            createdAt: new Date(),
+          },
+          {
+            _id: Math.random().toString(16).slice(2),
+            text: "I am here to help you!!",
+            createdAt: new Date(),
+          },
+        ])
+      );
+    }
+    if (messages[0].text === "Hi") {
+      setMessages((previousMessages) =>
+        GiftedChat.append(previousMessages, {
+          _id: Math.random().toString(16).slice(2),
+          text: "Hello Sir/Madam How may I help you?",
+          createdAt: new Date(),
+        })
+      );
+    }
+  }, []);
 
-class ChatScreen extends Component {
- state = {
-   messages: [
-    {
-    _id: 1,
-    text: `Hi! I am the bot 🤖 from SIKE.\n\nHow may I help you with today? 
-    `,
-     createdAt: new Date(),
-    user: BOT_USER
-   }
-  ] 
-};
-
-componentDidMount() {
- Dialogflow_V2.setConfiguration(
-  dialogflowConfig.client_email,
-  dialogflowConfig.private_key,
-  Dialogflow_V2.LANG_ENGLISH_US,
-  dialogflowConfig.project_id
- );
-}
-
-handleGoogleResponse(result) {
- let text = result.queryResult.fulfillmentMessages[0].text.text[0];
- this.sendBotResponse(text);
-}
-
-onSend(messages = []) {
-  this.setState(previousState => ({
-  messages: GiftedChat.append(previousState.messages, messages)
-}));
-
-let message = messages[0].text;
-Dialogflow_V2.requestQuery(
-  message,
-  result => this.handleGoogleResponse(result),
-  error => console.log(error)
- );
-}
-
-sendBotResponse(text) {
-  let msg = {
-  _id: this.state.messages.length + 1,
-  text,
-  createdAt: new Date(),
-  user: BOT_USER
-};
-if (text == 'travel') {
-    msg = {
-      text: 'Would you like to buy\n a plane ticket?',
-      createdAt: new Date().getTime(),
-      user: BOT,
-    };
-}
- this.setState(previousState => ({
-   messages: GiftedChat.append(previousState.messages, [msg])
-  }));
- } 
-
-render() {
- return (
-  <View style={{ flex: 1, backgroundColor: '#fff' }}>
+  return (
     <GiftedChat
-      messages={this.state.messages}
-      onSend={messages => this.onSend(messages)}
+      messages={messages}
+      onSend={(messages) => onSend(messages)}
       user={{
-        _id: 1
+        _id: 1,
       }}
     />
-  </View>
-    );
-  }
- }
+  );
+};
 
- export default ChatScreen;
+export default ChatScreen;

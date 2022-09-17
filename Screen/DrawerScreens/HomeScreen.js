@@ -1,5 +1,5 @@
 // Import React and Component
-import React, { useState, Component } from "react";
+import React, { useState, Component, useEffect } from "react";
 import { RadioButton } from "react-native-paper";
 import {
   View,
@@ -19,17 +19,32 @@ import Card from "../Components/Card";
 import { firebase } from "../../Firebase/config";
 
 const UserHomeScreen = ({ navigation }) => {
+  const [data, setData] = useState("");
+  const uid = firebase.auth().currentUser.uid;
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(uid)
+      .get()
+      .then((response) => {
+        setData(response.data())
+        // console.log(response.data());
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
+
+
   return (
     <View style={styles.mainBody}>
       <ScrollView>
         <Card>
-          <Text style={styles.mainHeading}> Hello User !!</Text>
+          <Text style={styles.mainHeading}> Hi {data.name}!!</Text>
         </Card>
         <Card>
-          <Text style={styles.subHeading}>
-            {" "}
-            To Check Your Symptoms
-          </Text>
+          <Text style={styles.subHeading}> To Check Your Symptoms</Text>
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
@@ -43,10 +58,7 @@ const UserHomeScreen = ({ navigation }) => {
         </Card>
 
         <Card>
-          <Text style={styles.subHeading}>
-            {" "}
-            To Talk to our Psych Bot
-          </Text>
+          <Text style={styles.subHeading}> To Talk to our Psych Bot</Text>
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
@@ -60,16 +72,13 @@ const UserHomeScreen = ({ navigation }) => {
         </Card>
 
         <Card>
-          <Text style={styles.subHeading}>
-            {" "}
-            To Know about our Psychiatrist
-          </Text>
+          <Text style={styles.subHeading}> To Know about our Psychiatrist</Text>
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
-            onPress={() =>
-              navigation.navigate("Home", { screen: "ChatScreen" })
-            }
+            // onPress={() =>
+            //   navigation.navigate("Home", { screen: "ChatScreen" })
+            // }
             // onPress={handleSubmitPress}
           >
             <Text style={styles.buttonTextStyle}>Our Psychiatrist</Text>
@@ -77,15 +86,12 @@ const UserHomeScreen = ({ navigation }) => {
         </Card>
 
         <Card>
-          <Text style={styles.subHeading}>
-            {" "}
-            To Check your mood
-          </Text>
+          <Text style={styles.subHeading}> To Check your mood</Text>
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
             onPress={() =>
-              navigation.navigate("Home", { screen: "ChatScreen" })
+              navigation.navigate("Home", { screen: "MoodScreen" })
             }
             // onPress={handleSubmitPress}
           >
@@ -94,10 +100,7 @@ const UserHomeScreen = ({ navigation }) => {
         </Card>
 
         <Card>
-          <Text style={styles.subHeading}>
-            {" "}
-            To take notes
-          </Text>
+          <Text style={styles.subHeading}> To take notes</Text>
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}

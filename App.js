@@ -15,9 +15,19 @@ import UserDrawerNavigationRoutes from "./Screen/UserDrawerNavigatorRoutes";
 import PsychiratristDrawerNavigationRoutes from "./Screen/PsychiatristDrawerNavigatorRoutes";
 import QuizScreen from "./Screen/QuizScreen";
 import UserHomeScreen from "./Screen/DrawerScreens/HomeScreen";
-import AnxietyQuiz from "./Screen/AnxietyQuiz";
+import {
+  PTSDQuiz,
+  DepressionQuiz,
+  AnxietyQuiz,
+  EatingQuiz,
+  AddictionQuiz,
+  StealingQuiz,
+  BurningDisorder,
+  BiPolarDisorder,
+} from "./Screen/AllQuizScreens";
 import ChatScreen from "./Screen/ChatScreen";
 import NotesScreen from "./Screen/CreateNoteScreen";
+import MoodScreen from "./Screen/MoodScreen";
 
 const Stack = createStackNavigator();
 
@@ -47,7 +57,6 @@ const Auth = () => {
     </Stack.Navigator>
   );
 };
-
 
 const Home = () => {
   // Stack Navigator for Login and Sign up Screen
@@ -87,6 +96,34 @@ const Home = () => {
         }}
       />
       <Stack.Screen
+        name="PTSDQuiz"
+        component={PTSDQuiz}
+        options={{
+          title: "PTSD Quiz", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+      <Stack.Screen
+        name="DepressionQuiz"
+        component={DepressionQuiz}
+        options={{
+          title: "Depression Quiz", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+      <Stack.Screen
         name="AnxietyQuiz"
         component={AnxietyQuiz}
         options={{
@@ -101,7 +138,82 @@ const Home = () => {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
+        name="EatingQuiz"
+        component={EatingQuiz}
+        options={{
+          title: "Eating Disorder Quiz", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="AddictionQuiz"
+        component={AddictionQuiz}
+        options={{
+          title: "Addiction Disorder Quiz", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="StealingQuiz"
+        component={StealingQuiz}
+        options={{
+          title: "Stealing Disorder Quiz", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="BurningDisorder"
+        component={BurningDisorder}
+        options={{
+          title: "Burining Disorder Quiz", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="BiPolarDisorder"
+        component={BiPolarDisorder}
+        options={{
+          title: "Bipolar Disorder Quiz", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+
+      <Stack.Screen
         name="NotesScreen"
         component={NotesScreen}
         options={{
@@ -115,8 +227,22 @@ const Home = () => {
           },
         }}
       />
+
+      <Stack.Screen
+        name="MoodScreen"
+        component={MoodScreen}
+        options={{
+          title: "Mood", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
     </Stack.Navigator>
-    
   );
 };
 
@@ -183,7 +309,6 @@ const App = () => {
           // Hiding header for Navigation Drawer
           options={{ headerShown: false }}
         />
-
       </Stack.Navigator>
 
       {/* <Stack.Screen
