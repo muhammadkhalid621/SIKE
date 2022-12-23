@@ -1,9 +1,9 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
-import { RadioButton } from "react-native-paper";
+import { Button, RadioButton } from "react-native-paper";
 import Card from "./Components/Card";
 
-export default function MoodScreen() {
+export default function MoodScreen({ navigation }) {
   const [value, setValue] = useState("first");
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
@@ -49,6 +49,26 @@ export default function MoodScreen() {
 
   return (
     <View style={styles.mainBody}>
+      <Card style={styles.radioCard}>
+        <Text style={styles.subHeading}> Check Mood through image</Text>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", { screen: "ImageScreen" })}
+          // onPress={handleSubmitPress}
+        >
+          <Text style={styles.buttonTextStyle}>Check Mood</Text>
+        </TouchableOpacity>
+        <Text style={styles.subHeading}> Check Mood through voice</Text>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() => navigation.navigate("Home", { screen: "SpeechScreen" })}
+          // onPress={handleSubmitPress}
+        >
+          <Text style={styles.buttonTextStyle}>Check Mood</Text>
+        </TouchableOpacity>
+      </Card>
       <Card style={styles.radioCard}>
         <RadioButton.Group
           onValueChange={(value) => Quote(value)}
@@ -121,7 +141,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
   },
   radioCard: {
-    backgroundColor: '#96BAE8',
+    backgroundColor: "#96BAE8",
   },
   radioView: {
     flexDirection: "row",
@@ -129,7 +149,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 32,
-    textDecorationLine: 'underline',
+    textDecorationLine: "underline",
     justifyContent: "center",
     alignContent: "center",
     paddingBottom: 10,
@@ -141,6 +161,28 @@ const styles = StyleSheet.create({
   },
   author: {
     fontSize: 20,
-    textAlign: 'right'
+    textAlign: "right",
+  },
+  subHeading: {
+    color: "#021617",
+    fontSize: 18,
+  },
+  buttonStyle: {
+    backgroundColor: "#9b95f5",
+    borderWidth: 0,
+    color: "#FFFFFF",
+    borderColor: "#7DE24E",
+    height: 40,
+    alignItems: "center",
+    borderRadius: 30,
+    marginLeft: 35,
+    marginRight: 35,
+    marginTop: 20,
+    marginBottom: 25,
+  },
+  buttonTextStyle: {
+    color: "#FFFFFF",
+    paddingVertical: 10,
+    fontSize: 16,
   },
 });

@@ -28,6 +28,9 @@ import {
 import ChatScreen from "./Screen/ChatScreen";
 import NotesScreen from "./Screen/CreateNoteScreen";
 import MoodScreen from "./Screen/MoodScreen";
+import PsychiatristLocation from "./Screen/PsychiatristLocation";
+import Facial from "./Screen/Facial";
+import Speech from "./Screen/Speech";
 
 const Stack = createStackNavigator();
 
@@ -86,6 +89,20 @@ const Home = () => {
         component={ChatScreen}
         options={{
           title: "Chat", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+      <Stack.Screen
+        name="PsychiatristScreen"
+        component={PsychiatristLocation}
+        options={{
+          title: "Finder", //Set Header Title
           headerStyle: {
             backgroundColor: "#13c6d2", //Set Header color
           },
@@ -233,6 +250,35 @@ const Home = () => {
         component={MoodScreen}
         options={{
           title: "Mood", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+      <Stack.Screen
+        name="ImageScreen"
+        component={Facial}
+        options={{
+          title: "Image", //Set Header Title
+          headerStyle: {
+            backgroundColor: "#13c6d2", //Set Header color
+          },
+          headerTintColor: "#021617", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+
+<Stack.Screen
+        name="SpeechScreen"
+        component={Speech}
+        options={{
+          title: "Speech", //Set Header Title
           headerStyle: {
             backgroundColor: "#13c6d2", //Set Header color
           },

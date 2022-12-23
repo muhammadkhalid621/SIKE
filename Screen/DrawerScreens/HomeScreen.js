@@ -72,16 +72,16 @@ const UserHomeScreen = ({ navigation }) => {
         </Card>
 
         <Card>
-          <Text style={styles.subHeading}> To Know about our Psychiatrist</Text>
+          <Text style={styles.subHeading}> To Find Psychiatrists</Text>
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
-            // onPress={() =>
-            //   navigation.navigate("Home", { screen: "ChatScreen" })
-            // }
+            onPress={() =>
+              navigation.navigate("Home", { screen: "PsychiatristScreen" })
+            }
             // onPress={handleSubmitPress}
           >
-            <Text style={styles.buttonTextStyle}>Our Psychiatrist</Text>
+            <Text style={styles.buttonTextStyle}>Find Psychiatrists</Text>
           </TouchableOpacity>
         </Card>
 

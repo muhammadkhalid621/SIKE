@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "frontend",
-    "slug": "frontend",
+    "name": "SIKE",
+    "slug": "SIKE",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,14 +25,14 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.company.sike"
+      "package": "com.muhammadkhalid621.SIKE"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "b4f45001-9b3e-4201-889d-75c4eaa1fac6"
+        "projectId": "70e4027c-b4e4-4f03-9adf-44a6c4534908"
       }
     }
   }
